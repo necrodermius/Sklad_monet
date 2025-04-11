@@ -20,4 +20,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('restaurant.urls')),
+    path('menu', include('restaurant.urls')),
+    path('profile', include('restaurant.urls')),
+    path('qrcode', include('restaurant.urls')),
 ]
