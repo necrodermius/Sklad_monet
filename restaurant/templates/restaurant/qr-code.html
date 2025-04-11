@@ -1,153 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QR Code</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
-  <link href="css/style.css" rel="stylesheet" />
-  <link href="css/responsive.css" rel="stylesheet" />
-</head>
-<body>
-  <div class="hero_area" style="min-height: 0px">
-    <div class="bg-box">
-      <img src="images/hero-bg.jpg" alt="" style="max-height: 88px; width: 100%; object-fit: cover; object-position: top;" class="">
-    </div>
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="/">
-            <span>
-              Sklad monet
-            </span>
-          </a>
+{% extends "restaurant/base.html" %} 
+{% load static %}
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
+{% block title %}
+QR Code
+{% endblock %}
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/menu">Menu</a>
-              </li>
-            </ul>
-            <div class="user_option">
-              <a class="user_link" href="/profile">
-                <img src="images/icons/profile.svg" alt="Profile" width="24" height="24">
-              </a>
-              <a class="qr_link" href="/qrcode" >
-                <img src="images/icons/qr-code-active.svg" alt="QR Code" width="24" height="24">
-              </a>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end header section -->
-  </div>
-  <section style="display: flex; flex-direction:column; justify-content: center; align-items: center; height: 100vh;">
-    <p>Scan QR Code and get discounts!</p>
-    <img src="images/icons/qr-code-scan.svg" alt="" class="" width="600px" height="600px">
-  </section>
+{% block hero_area %}
+<div class="hero_area" style="min-height: 0px">
+{% endblock%}
 
-  <footer class="footer_section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 footer-col">
-          <div class="footer_contact">
-            <h4>
-              Contact Us
-            </h4>
-            <div class="contact_link_box">
-              <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>
-                  Location
-                </span>
-              </a>
-              <div>
-                <p style="margin-bottom: 0px;">Do you want to book a table? Please, call the number</p> 
-                <a href="">
-                  <span>
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    <span>+38 068 361 32 81</span> 
-                  </span>
-                </a>
-              </div>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>
-                  sklad_monet@gmail.com
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 footer-col">
-          <div class="footer_detail">
-            <a href="/" class="footer-logo">
-              Sklad monet
-            </a>
-            <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
-            </p>
-            <div class="footer_social">
-              <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-pinterest" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 footer-col">
-          <h4>
-            Opening Hours
-          </h4>
-          <p>
-            Everyday
-          </p>
-          <p>
-            10.00 Am -10.00 Pm
-          </p>
-        </div>
-      </div>
-      <div class="footer-info">
-        <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br><br>
-          &copy; <span id="displayYear"></span> Distributed By
-          <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
-        </p>
-      </div>
-    </div>
-  </footer>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-  <script src="js/custom.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
-  </script>
-</body>
-</html>
+{% block hero_image %}
+<div class="bg-box">
+  <img src="{% static 'images/hero-bg.jpg' %}" alt="" style="max-height: 88px; width: 100%; object-fit: cover; object-position: top;">
+</div>
+{% endblock %}
+
+{% block nav_link_home %}
+<li class="nav-item">
+  <a class="nav-link" href="/">Home</a>
+</li>
+{% endblock%}
+
+{% block nav_link_menu %}
+<li class="nav-item">
+  <a class="nav-link" href="/menu">Menu</a>
+</li>
+{% endblock%}
+
+{% block user_link %}
+<img src="{% static 'images/icons/profile.svg' %}" alt="Profile" class="" width="24" height="24">
+{% endblock %}
+
+{% block qr_link %}
+<img src="{% static 'images/icons/qr-code-active.svg' %}" alt="QR Code" width="24" height="24">
+{% endblock %}
+
+{% block content %}
+<section style="display: flex; flex-direction:column; justify-content: center; align-items: center; height: 100vh;">
+  <p>Scan QR Code and get discounts!</p>
+  <img src="{% static 'images/icons/qr-code-scan.svg' %}" alt="" class="" width="600px" height="600px">
+</section>
+{% endblock %}
