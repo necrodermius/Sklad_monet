@@ -15,7 +15,7 @@ class Category(models.Model):
 class Dish(models.Model):
     name = models.CharField(max_length=100)
     ingredients = models.TextField()
-    image = models.ImageField(upload_to='images/', null=False)
+    image = models.ImageField(upload_to='media/images/', null=False)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=False)
 
