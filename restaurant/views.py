@@ -12,8 +12,3 @@ def menu_page_view(request) :
     dishes_by_category = Dish.objects.all()
     return render(request, 'restaurant/menu.html', {'categories': categories, 'dishes': dishes_by_category})
 
-def profile_page_view(request):
-    return render(request, 'restaurant/profile.html')
-
-def qrcode_view(request):
-    return render(request, 'restaurant/qr-code.html')
