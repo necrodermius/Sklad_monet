@@ -1,4 +1,41 @@
-<!DOCTYPE html>
+{% extends "restaurant/base.html" %} 
+{% load static %}
+
+{% block title %}
+Sign Up
+{% endblock %}
+
+{% block hero_area %}
+<div class="hero_area" style="min-height: 0px">
+{% endblock%}
+
+{% block hero_image %}
+<div class="bg-box">
+  <img src="images/hero-bg.jpg" alt="" style="max-height: 88px; width: 100%; object-fit: cover; object-position: top;" class="">
+</div>
+{% endblock %}
+
+{% block nav_link_home %}
+<li class="nav-item">
+  <a class="nav-link" href="/">Home</a>
+</li>
+{% endblock%}
+
+{% block nav_link_menu %}
+<li class="nav-item">
+  <a class="nav-link" href="/menu">Menu</a>
+</li>
+{% endblock%}
+
+{% block user_link %}
+<img src="{% static 'images/icons/profile.svg' %}" alt="Profile" class="" width="24" height="24">
+{% endblock %}
+
+{% block qr_link %}
+<img src="{% static 'images/icons/qr-code.svg' %}" alt="QR Code" class="" width="24" height="24">
+{% endblock %}
+
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -28,7 +65,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item">
-                <a class="nav-link" href="/restaurant/static">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/restaurant/static">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/menu">Menu</a>
@@ -77,4 +114,4 @@
     </div>
   </div>
 </body>
-</html>
+</html> {% endcomment %}

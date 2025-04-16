@@ -836,6 +836,7 @@ a:focus {
   border-radius: 5px;
 }
 
+
 .contact_section .form_container input::-webkit-input-placeholder {
   color: #222222;
 }
@@ -990,25 +991,23 @@ a:focus {
 .footer_section .footer-info p a {
   color: inherit;
 }
-/*# sourceMappingURL=style.css.map */
-
 
 .custom-signup-btn, .custom-signin-btn {
-  background-color: #FFC300; /* основний колір кнопки */
-  color: white; /* колір тексту */
-  font-size: 16px; /* розмір шрифта */
-  padding: 15px; /* відступи всередині кнопки */
-  border-radius: 5px; /* заокруглені кути */
-  border: none; /* без обводки */
-  width: 100%; /* кнопка на всю ширину */
-  transition: background-color 0.3s ease; /* анімація зміни кольору */
+  background-color: #FFC300; 
+  color: white; 
+  font-size: 16px; 
+  padding: 15px; 
+  border-radius: 5px; 
+  border: none; 
+  width: 100%; 
+  transition: background-color 0.3s ease;
 }
 
 .custom-signup-btn:hover, .custom-signin-btn:hover {
-  background-color: #efb701; /* колір кнопки при наведенні */
-  cursor: pointer; /* змінює курсор при наведенні */
+  background-color: #efb701; /
+  cursor: pointer; 
 }
 
 .custom-signup-btn:focus, .custom-signin-btn:focus {
-  outline: none; /* прибирає обводку при фокусі */
+  outline: none; 
 }
