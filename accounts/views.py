@@ -2,8 +2,10 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, FormView
 
-from accounts.forms import EmailLoginForm
+from accounts.forms import EmailLoginForm, RegisterForm
 from accounts.models import User
 
 
@@ -34,3 +36,14 @@ def login_view(request):
             messages.error(request, "Користувача з таким email не існує.")
 
     return render(request, "registration/login.html", {"form": form})
+
+
+class RegisterView(FormView):
+    model = User
+    form_class = RegisterForm
+    template_name = "registration/register.html"
+    success_url = reverse_lazy('accounts:profile')
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)

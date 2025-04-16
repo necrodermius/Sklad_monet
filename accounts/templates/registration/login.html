@@ -1,4 +1,4 @@
-{% extends "restaurant/base.html" %} 
+{% extends "restaurant/base.html" %}
 {% load widget_tweaks %}
 {% load static %}
 
@@ -7,7 +7,7 @@ Sign Up
 {% endblock %}
 
 {% block hero_area %}
-<div class="hero_area" style="min-height: 0px">
+    <div class="hero_area" style="min-height: 0px"></div>
 {% endblock%}
 
 {% block hero_image %}
@@ -57,7 +57,7 @@ Sign Up
         <button type="submit" class="btn btn-primary btn-block custom-signin-btn">Sign In</button>
       {{ form.errors }}
       </form>
-      <a href="/register" style="display: flex; justify-content: center; color: #000; margin-top: 20px;" >You have no account yet? Sign up</a>
+      <a href="{% url 'accounts:register' %}" style="display: flex; justify-content: center; color: #000; margin-top: 20px;" >You have no account yet? Sign up</a>
     </div>
   </div>
 </div>
