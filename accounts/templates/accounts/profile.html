@@ -1,15 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
-</head>
-<body>
-    <h1>{{ user.email }} MALADEC</h1>
-    <form method="post" action="{% url 'accounts:logout' %}">
+{% extends "restaurant/base.html" %}
+{% load static %}
+
+{% block title %}
+User Profile
+{% endblock %}
+
+{% block hero_area %}
+  <div class="hero_area" style="min-height: 0px"></div>
+{% endblock%}
+
+{% block hero_image %}
+<div class="bg-box">
+  <img src="{% static 'images/hero-bg.jpg' %}" alt="" style="max-height: 88px; width: 100%; object-fit: cover; object-position: top;" class="">
+</div>
+{% endblock %}
+
+{% block nav_link_home %}
+<li class="nav-item">
+  <a class="nav-link" href="/">Home</a>
+</li>
+{% endblock%}
+
+{% block nav_link_menu %}
+<li class="nav-item">
+  <a class="nav-link" href="/menu">Menu</a>
+</li>
+{% endblock%}
+
+{% block user_link %}
+<img src="{% static 'images/icons/profile-active.svg' %}" alt="Profile" class="" width="24" height="24">
+{% endblock %}
+
+{% block qr_link %}
+<img src="{% static 'images/icons/qr-code.svg' %}" alt="QR Code" class="" width="24" height="24">
+{% endblock %}
+
+{% block content %}
+<div style="display: flex; margin: 200px 100px">
+  <div>
+    <p><b>Email:</b> {{ user.email }}</p>
+    <p><b>First name:</b> {{ user.first_name }}</p>
+    <p><b>Last name:</b> {{ user.last_name }}</p>
+    <p><b>Phone number:</b> {{ user.phone_number }}</p>
+    <p><b>Available bonuses:</b> {{ user.bonuses }}</p>
+    <form method="post" action="{% url 'accounts:logout' %}" style="margin-top: 50px">
         {% csrf_token %}
-        <button type="submit">Logout</button>
+        <button type="submit" class="btn custom-signin-btn">Logout</button>
     </form>
-</body>
-</html>
+  </div>
+</div>
+{% endblock %}
+
