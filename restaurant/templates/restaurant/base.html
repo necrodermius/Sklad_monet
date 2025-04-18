@@ -35,10 +35,10 @@
               {% block nav_link_menu %}{% endblock%}
             </ul>
             <div class="user_option">
-              <a class="user_link" href="/accounts/profile">
+              <a class="user_link" href="{% url 'accounts:profile' %}">
                 {% block user_link %}{% endblock%}
               </a>
-              <a class="qr_link" href="/accounts/qrcode">
+              <a class="qr_link" href="{% url 'accounts:qr_page' %}">
                 {% block qr_link %}{% endblock%}
               </a>
             </div>

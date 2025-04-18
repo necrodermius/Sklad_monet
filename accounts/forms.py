@@ -28,3 +28,14 @@ class RegisterForm(UserCreationForm):
         if User.objects.filter(email=email).exists():
             raise forms.ValidationError("Така адреса електронної пошти вже використовується.")
         return email
+
+class BonusForm(forms.Form):
+    order_amount = forms.DecimalField(
+        label="Сума замовлення",
+        min_value=0,
+        decimal_places=2,
+        widget=forms.NumberInput(attrs={
+            'placeholder': 'Введіть суму замовлення',
+            'step': '0.01'
+        })
+    )

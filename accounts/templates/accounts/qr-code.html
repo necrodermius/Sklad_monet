@@ -33,12 +33,21 @@ QR Code
 {% endblock %}
 
 {% block qr_link %}
-<img src="{% static 'images/icons/qr-code-active.svg' %}" alt="QR Code" width="24" height="24">
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'accounts:qr_page' %}">
+    <img src="{% static 'images/icons/qr-code.svg' %}" alt="QR" width="24" height="24">
+  </a>
+</li>
 {% endblock %}
 
+
 {% block content %}
-<section style="display: flex; flex-direction:column; justify-content: center; align-items: center; height: 100vh;">
-  <p>Scan QR Code and get discounts!</p>
-  <img src="{% static 'images/icons/qr-code-scan.svg' %}" alt="" class="" width="600px" height="600px">
-</section>
+  <section style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:80vh">
+    <p>Scan this QR in waiter’s app to enter order amount</p>
+    <img
+      src="{% url 'accounts:qr_image' signed_user_id %}"
+      alt="QR для начисления бонусов"
+      width="300" height="300"
+    >
+  </section>
 {% endblock %}
