@@ -33,11 +33,7 @@ QR Code
 {% endblock %}
 
 {% block qr_link %}
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'accounts:qr_page' %}">
-    <img src="{% static 'images/icons/qr-code.svg' %}" alt="QR" width="24" height="24">
-  </a>
-</li>
+<img src="{% static 'images/icons/qr-code-active.svg' %}" alt="QR" width="24" height="24">
 {% endblock %}
 
 

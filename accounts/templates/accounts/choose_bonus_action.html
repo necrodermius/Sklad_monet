@@ -36,15 +36,33 @@
 
 {% block content %}
 <section style="max-width: 400px; margin: 100px auto; text-align: center;">
-  <h2>Управління бонусами для {{ user.get_full_name|default:user.email }}</h2>
-  <p>Поточний баланс: <strong>{{ user.bonuses }}</strong></p>
-  <div style="display:flex;justify-content:space-around; margin-top:2em;">
-    <a href="{% url 'accounts:redeem' signed_user_id %}" class="btn custom-signin-btn">
+  <p style="font-size: 26px; font-weight: 500;">Управління бонусами для {{ user.get_full_name|default:user.email }}</p>
+  <p><strong>Поточний баланс: </strong>{{ user.bonuses }}</p>
+  <div style="display:flex;justify-content:space-around; margin-top:2em; gap:2rem;">
+    <a href="{% url 'accounts:redeem' signed_user_id %}" class="custom-bonus-btn">
       Зарахувати бонуси
     </a>
-    <a href="{% url 'accounts:spend' signed_user_id %}" class="btn custom-signin-btn">
+    <a href="{% url 'accounts:spend' signed_user_id %}" class="custom-bonus-btn">
       Списати бонуси
     </a>
   </div>
 </section>
+<style>
+  .custom-bonus-btn {
+    background-color: #FFC300; 
+    color: white; 
+    font-size: 16px; 
+    padding: 15px; 
+    border-radius: 5px; 
+    border: none; 
+    width: 100%; 
+    transition: background-color 0.3s ease;
+  }
+
+  .custom-bonus-btn:hover {
+    background-color: #efb701; 
+    color: white; 
+    cursor: pointer; 
+  }
+</style>
 {% endblock %}

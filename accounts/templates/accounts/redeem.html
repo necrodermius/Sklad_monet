@@ -1,12 +1,42 @@
 {% extends "restaurant/base.html" %}
 {% load static %}
 
-{% block title %}Начисление бонусов{% endblock %}
+{% block title %}Нарахування бонусів{% endblock %}
+
+{% block hero_area %}
+  <div class="hero_area" style="min-height: 0px"></div>
+{% endblock%}
+
+{% block hero_image %}
+<div class="bg-box" style="max-height: 88px;">
+  <img src="{% static 'images/hero-bg.jpg' %}" alt="" style="max-height: 88px; width: 100%; object-fit: cover; object-position: top;" class="">
+</div>
+{% endblock %}
+
+{% block nav_link_home %}
+<li class="nav-item">
+  <a class="nav-link" href="/">Home</a>
+</li>
+{% endblock%}
+
+{% block nav_link_menu %}
+<li class="nav-item">
+  <a class="nav-link" href="/menu">Menu</a>
+</li>
+{% endblock%}
+
+{% block user_link %}
+<img src="{% static 'images/icons/profile-active.svg' %}" alt="Profile" class="" width="24" height="24">
+{% endblock %}
+
+{% block qr_link %}
+<img src="{% static 'images/icons/qr-code.svg' %}" alt="QR Code" class="" width="24" height="24">
+{% endblock %}
 
 {% block content %}
 <section style="max-width: 400px; margin: 100px auto; text-align: center;">
-  <h2>Нарахування бонусів для {{ user.get_full_name|default:user.email }}</h2>
-  <p>Поточний баланс: <strong>{{ user.bonuses }}</strong></p>
+  <p style="font-size: 26px; font-weight: 500;">Нарахування бонусів для {{ user.get_full_name|default:user.email }}</p>
+  <p><strong>Поточний баланс: </strong>{{ user.bonuses }}</p>
 
   <form method="post">
     {% csrf_token %}
@@ -17,7 +47,25 @@
         <div style="color: red">{{ form.order_amount.errors }}</div>
       {% endif %}
     </div>
-    <button type="submit" class="btn custom-signin-btn">Зарахувати бонуси</button>
+    <button type="submit" class="btn custom-bonus-btn">Зарахувати бонуси</button>
   </form>
 </section>
+<style>
+  .custom-bonus-btn {
+    background-color: #FFC300; 
+    color: white; 
+    font-size: 16px; 
+    padding: 15px; 
+    border-radius: 5px; 
+    border: none; 
+    width: 100%; 
+    transition: background-color 0.3s ease;
+  }
+
+  .custom-bonus-btn:hover {
+    background-color: #efb701; 
+    color: white; 
+    cursor: pointer; 
+  }
+</style>
 {% endblock %}

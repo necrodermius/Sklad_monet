@@ -3,9 +3,39 @@
 
 {% block title %}Бонуси списані{% endblock %}
 
+{% block hero_area %}
+  <div class="hero_area" style="min-height: 0px"></div>
+{% endblock%}
+
+{% block hero_image %}
+<div class="bg-box" style="max-height: 88px;">
+  <img src="{% static 'images/hero-bg.jpg' %}" alt="" style="max-height: 88px; width: 100%; object-fit: cover; object-position: top;" class="">
+</div>
+{% endblock %}
+
+{% block nav_link_home %}
+<li class="nav-item">
+  <a class="nav-link" href="/">Home</a>
+</li>
+{% endblock%}
+
+{% block nav_link_menu %}
+<li class="nav-item">
+  <a class="nav-link" href="/menu">Menu</a>
+</li>
+{% endblock%}
+
+{% block user_link %}
+<img src="{% static 'images/icons/profile-active.svg' %}" alt="Profile" class="" width="24" height="24">
+{% endblock %}
+
+{% block qr_link %}
+<img src="{% static 'images/icons/qr-code.svg' %}" alt="QR Code" class="" width="24" height="24">
+{% endblock %}
+
 {% block content %}
 <section style="max-width: 400px; margin: 100px auto; text-align: center;">
-  <h2>Бонуси успішно списано!</h2>
+  <p style="font-size: 26px; font-weight: 500;">Бонуси успішно списано!</p>
   <p>Списано бонусів: <strong>{{ spent }}</strong></p>
   <p>Новийй баланс: <strong>{{ user.bonuses }}</strong></p>
   <a href="{% url 'accounts:choose' signed_user_id %}" class="btn custom-signin-btn" style="margin-top:1em;">

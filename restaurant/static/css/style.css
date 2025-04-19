@@ -1004,7 +1004,7 @@ a:focus {
 }
 
 .custom-signup-btn:hover, .custom-signin-btn:hover {
-  background-color: #efb701; /
+  background-color: #efb701; 
   cursor: pointer; 
 }
 
