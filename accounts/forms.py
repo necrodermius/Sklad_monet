@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
@@ -38,4 +40,13 @@ class BonusForm(forms.Form):
             'placeholder': 'Введіть суму замовлення',
             'step': '0.01'
         })
+    )
+
+class UseBonusForm(forms.Form):
+    bonus_amount = forms.DecimalField(
+        label='Кількість бонусів для використання:',
+        max_digits=10,
+        decimal_places=2,
+        min_value=Decimal('0.01'),
+        help_text='Введіть, скільки бонусів гість хоче витратити (1 бонус = 1 гривня)'
     )

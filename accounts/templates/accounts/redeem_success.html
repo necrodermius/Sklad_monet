@@ -8,6 +8,8 @@
   <h2>Бонуси успішно зараховані!</h2>
   <p>За замовлення на суму <strong>{{ order_amount }}</strong> зараховано <strong>{{ bonus }}</strong> бонусів.</p>
   <p>Новий баланс: <strong>{{ user.bonuses }}</strong></p>
-  <a href="{% url 'accounts:profile' %}" class="btn custom-signin-btn" style="margin-top:1em;">Повернутися в профіль</a>
+    <a href="{% url 'accounts:choose' signed_user_id %}" class="btn custom-signin-btn" style="margin-top:1em;">
+      Повернутися до управління бонусами
+    </a>
 </section>
 {% endblock %}

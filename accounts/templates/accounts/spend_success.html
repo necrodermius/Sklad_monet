@@ -1,0 +1,15 @@
+{% extends "restaurant/base.html" %}
+{% load static %}
+
+{% block title %}Бонуси списані{% endblock %}
+
+{% block content %}
+<section style="max-width: 400px; margin: 100px auto; text-align: center;">
+  <h2>Бонуси успішно списано!</h2>
+  <p>Списано бонусів: <strong>{{ spent }}</strong></p>
+  <p>Новийй баланс: <strong>{{ user.bonuses }}</strong></p>
+  <a href="{% url 'accounts:choose' signed_user_id %}" class="btn custom-signin-btn" style="margin-top:1em;">
+    Повернутися до управління бонусами
+  </a>
+</section>
+{% endblock %}

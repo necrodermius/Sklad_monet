@@ -1,0 +1,23 @@
+{% extends "restaurant/base.html" %}
+{% load static %}
+
+{% block title %}Списання бонусів{% endblock %}
+
+{% block content %}
+<section style="max-width: 400px; margin: 100px auto; text-align: center;">
+  <h2>Списання бонусів для {{ user.get_full_name|default:user.email }}</h2>
+  <p>Поточний баланс: <strong>{{ user.bonuses }}</strong></p>
+
+  <form method="post">
+    {% csrf_token %}
+    <div style="margin-bottom: 1em;">
+      {{ form.bonus_amount.label_tag }}<br>
+      {{ form.bonus_amount }}
+      {% if form.bonus_amount.errors %}
+        <div style="color: red">{{ form.bonus_amount.errors }}</div>
+      {% endif %}
+    </div>
+    <button type="submit" class="btn custom-signin-btn">Списати бонуси</button>
+  </form>
+</section>
+{% endblock %}
