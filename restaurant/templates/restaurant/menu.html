@@ -11,7 +11,7 @@ Menu
 
 {% block hero_image %}
 <div class="bg-box">
-  <img src="{% static 'images/hero-bg.jpg' %}" alt="" style="max-height: 88px; width: 100%; object-fit: cover; object-position: top;">
+  <img src="{% static 'images/hero.jpg' %}" alt="" style="max-height: 88px; width: 100%; object-fit: cover; object-position: top;">
 </div>
 {% endblock %}
 
@@ -22,8 +22,8 @@ Menu
 {% endblock%}
 
 {% block nav_link_menu %}
-<li class="nav-item active">
-  <a class="nav-link" href="/menu">Menu<span class="sr-only">(current)</span></a>
+<li class="nav-item active"> 
+  <a class="nav-link" href="/menu">Menu</a>
 </li>
 {% endblock%}
 
@@ -34,7 +34,6 @@ Menu
 {% block qr_link %}
 <img src="{% static 'images/icons/qr-code.svg' %}" alt="QR Code" class="" width="24" height="24">
 {% endblock %}
-
 
 {% block content %}
   <!-- food section -->
@@ -47,41 +46,58 @@ Menu
       </div>
 
       <ul class="filters_menu">
+        <li data-filter="*" class="active">All</li>
         {% for el in categories %}
-            <li data-filter=".{{ el.id }}">{{ el.name }}</li>
+          <li data-filter=".{{ el.id }}">{{ el.name }}</li>
         {% endfor %}
       </ul>
 
-      <div class="filters-content">
-      <div class="row grid">
-          {% for dish in dishes %}
-        <div class="col-sm-6 col-lg-4 all {{ dish.category.id }}">
-          <div class="box">
-            <div>
-              <div class="img-box" style="max-height: 180px;">
-                <img src="{{ dish.image.url }}" alt="" style="width: 300px; height: 260px; border-radius: 8px; object-fit: cover;">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  {{ dish.name }}
-                </h5>
-                <p>
-                  {{ dish.ingredients }}
-                </p>
-                <div class="options">
-                  <h6>
-                      {{ dish.price }} грн.
-                  </h6>
+      <div style="display: flex; gap: 20px;">
+        <div class="dietary-filters" style="position: sticky; top: 20px; width: 200px; height: 450px; background-color: #f8f8f8; padding: 20px; border-radius: 10px; box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);">
+          <h5 style="margin-bottom: 20px;">Dietary Options</h5>
+          <form id="dietary-filters-form">
+            {% for el in filters %}
+              <label style="display: block; margin-bottom: 10px;">
+                <input type="checkbox" name="dietary" value="{{ el }}" class="dietary-checkbox" style="margin-right: 10px;">
+                {{ el }}
+              </label>
+            {% endfor %}
+          </form>
+        </div>
+      
+        <!-- Filters Content Section -->
+        <div class="filters-content" style="flex-grow: 1;">
+          <div class="row grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+            {% for dish in dishes %}
+              <div class="col-sm-6 col-lg-4 all {{ dish.category.id }} {% for dietary in dish.dietary_types.all %}{{ dietary.name|slugify }} {% endfor %}">
+                <div class="box" style="margin-top: 0; margin-bottom: 20px; height: 450px;">
+                  <div>
+                    <div class="img-box" style="max-height: 180px;">
+                      <img src="{{ dish.image.url }}" alt="" style="width: 300px; height: 260px; border-radius: 8px; object-fit: cover;">
+                    </div>
+                    <div class="detail-box">
+                      <h5>
+                        {{ dish.name }}
+                      </h5>
+                      <p>
+                        {{ dish.ingredients }}
+                      </p>
+                      <p><strong>Dietary Options:</strong>
+                        {% for dietary in dish.dietary_types.all %}
+                          {{ dietary.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                      </p>
+                      <h6>
+                        {{ dish.price }} €.
+                      </h6>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </div>          
+            {% endfor %}
           </div>
         </div>
-          {% endfor %}
       </div>
-    </div>
-    </div>
   </section>
-  <!-- end food section -->
-    </div>
-{% endblock%}
+  <!-- end food section --> 
+{% endblock %}

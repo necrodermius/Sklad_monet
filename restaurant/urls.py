@@ -5,6 +5,5 @@ from . import views
 urlpatterns = [
     path('', views.main_page_view),
     path('menu', views.menu_page_view),
-
-
-]
+    # path('menu/filter', views.menu_filter_page_view),
+] 

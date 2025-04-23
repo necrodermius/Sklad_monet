@@ -7,26 +7,33 @@ function getYear() {
 
 getYear();
 
+$(document).ready(function () {
+  var $grid = $(".grid").isotope({
+    itemSelector: ".all",
+    layoutMode: 'fitRows'
+  });
 
-// isotope js
-$(window).on('load', function () {
-    $('.filters_menu li').click(function () {
-        $('.filters_menu li').removeClass('active');
-        $(this).addClass('active');
+  let currentCategoryFilter = '*';
 
-        var data = $(this).attr('data-filter');
-        $grid.isotope({
-            filter: data
-        })
-    });
+  $('.filters_menu li').click(function () {
+    $('.filters_menu li').removeClass('active');
+    $(this).addClass('active');
+    currentCategoryFilter = $(this).attr('data-filter') || '*';
+    updateCombinedFilter();
+  });
 
-    var $grid = $(".grid").isotope({
-        itemSelector: ".all",
-        percentPosition: false,
-        masonry: {
-            columnWidth: ".all"
-        }
-    })
+  $('.dietary-checkbox').on('change', updateCombinedFilter);
+
+  function updateCombinedFilter() {
+    const selectedDietaries = Array.from($('.dietary-checkbox:checked'))
+      .map(cb => '.' + cb.value.trim().toLowerCase().replace(/\s+/g, '-'));
+
+    const dietaryFilter = selectedDietaries.join('');
+    const combinedFilter = currentCategoryFilter + dietaryFilter || '*';
+
+    console.log("combined filter:", combinedFilter);
+    $grid.isotope({ filter: combinedFilter });
+  }
 });
 
 // nice select
