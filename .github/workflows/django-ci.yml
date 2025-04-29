@@ -22,14 +22,6 @@ jobs:
       - name: Build Docker Image
         run: docker compose build
 
-      - name: Write .env for compose
-        run: |
-          cat <<EOF > .env
-          DB_NAME=${{ env.DB_NAME }}
-          DB_USER=${{ env.DB_USER }}
-          DB_PASSWORD=${{ env.DB_PASSWORD }}
-          EOF
-
       - name: Run Django & DB Containers
         run: docker compose up -d db web
 

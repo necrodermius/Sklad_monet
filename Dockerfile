@@ -21,4 +21,4 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 COPY . .
 
 # Використовуємо Gunicorn для запуску Django
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "myproject.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "config.wsgi:application"]
