@@ -35,7 +35,7 @@ jobs:
         run: python manage.py migrate --noinput
 
       - name: run tests
-        run: python manage.py test
+        run: python manage.py test --keepdb --parallel 1
 
   deploy-render:
     needs: build-test
