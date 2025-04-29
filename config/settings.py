@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-5&rnz#643ak&%2!5p+x56ejgc0uh+g*aq&(j($*nbkk3$cbc_f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sklad-monet.onrender.com']
 
 
 # Application definition
