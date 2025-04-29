@@ -1,4 +1,4 @@
-name: Django CI/CD
+name: lab-3 dockerfile compose & build
 
 on:
   push:
@@ -11,6 +11,11 @@ on:
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
+
+    env:
+      DB_NAME: ${{ secrets.DB_NAME }}
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
     steps:
       - name: Checkout repository

@@ -1,4 +1,4 @@
-name: build-and-deploy-to-render
+name: lab-4 build and deploy on render
 
 on:
   push:
