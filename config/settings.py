@@ -133,7 +133,7 @@ USE_TZ = True
 
 # де шукати
 STATIC_URL = '/static/'
-STATICFILES_DIRS =  BASE_DIR / 'static'   # якщо маєте папку static/ у корені
+STATICFILES_DIRS = [ BASE_DIR / "static" ]   # якщо маєте папку static/ у корені
 
 # куди collectstatic складе
 STATIC_ROOT = BASE_DIR / 'staticfiles'
